@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['poren_analyse.py.py'],
+    ['poren_analyse.py'],
     pathex=[],
     binaries=[],
     datas=[],
