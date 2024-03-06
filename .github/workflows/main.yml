@@ -1,38 +1,51 @@
-name: Build .exe File
+name: Build Workflow
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+#    branches: master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  build-windows:
+    runs-on: windows-2019
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Python
+        uses: actions/setup-python@v1
         with:
-          python-version: 3.x
-
-      - name: Install dependencies
+          python-version: '3.9'
+          architecture: 'x64'
+      - name: Install requirements
         run: |
-          pip install pyinstaller
-
-      - name: Build .exe
+          pip install -r requirements.txt
+      - name: Run PyInstaller
         run: |
-          pyinstaller --onefile poren_analyse.py
-          mv dist/poren_analyse.exe ./poren_analyse.exe
-        working-directory: ${{ github.workspace }}
-
-      - name: Upload .exe
-        uses: actions/upload-artifact@v2
+          python -m PyInstaller main.spec
+      - uses: actions/upload-artifact@v2
         with:
-          name: poren_analyse
-          path: poren_analyse.exe
+          name: Windows_qwiklabs
+          path: dist/main.exe
+
+      - name: create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.head_commit.message }}
+          release_name: ${{ github.event.head_commit.message }}
+          overwrite: true
+          body: |
+            Test Release v1.0.0
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: dist/main.exe
+          asset_name: void.exe
+          asset_content_type: application/zip
