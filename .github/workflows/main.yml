@@ -1,33 +1,12 @@
-name: Build Workflow
-
-on:
-  push:
-#    branches: master
-
 jobs:
-  build-windows:
-    runs-on: windows-2019
+  pyinstaller-build:
+    runs-on: windows-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Install Python
-        uses: actions/setup-python@v1
+      - name: void
+        uses: sayyid5416/pyinstaller@v1
         with:
-          python-version: '3.9'
-          architecture: 'x64'
-      - name: Install requirements
-        run: |
-          pip install -r requirements.txt
-      - name: Run PyInstaller
-        run: |
-          python -m PyInstaller poren_analyse.spec
-      - uses: actions/upload-artifact@v2
-        with:
-          name: poren_analyse
-          path: dist/poren_analyse.exe
-
-      - name: Upload .exe
-        uses: actions/upload-artifact@v2
-        with:
-          name: poren_analyse
-          path: poren_analyse.exe
+          python_ver: '3.9'
+          spec: 'poren_analyse.spec'
+          requirements: 'requirements.txt'
+          upload_exe_with_name: 'void'
+          options: --onefile, --name "My App", --windowed, 
