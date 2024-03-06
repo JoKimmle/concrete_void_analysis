@@ -23,29 +23,11 @@ jobs:
           python -m PyInstaller poren_analyse.spec
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows_qwiklabs
+          name: poren_analyse
           path: dist/poren_analyse.exe
 
-      - name: create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload .exe
+        uses: actions/upload-artifact@v2
         with:
-          tag_name: ${{ github.event.head_commit.message }}
-          release_name: ${{ github.event.head_commit.message }}
-          overwrite: true
-          body: |
-            Test Release v1.0.0
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: dist/poren_analyse.exe
-          asset_name: void.exe
-          asset_content_type: application/zip
+          name: poren_analyse
+          path: poren_analyse.exe
