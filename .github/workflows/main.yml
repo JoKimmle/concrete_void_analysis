@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: poren_analyse
-          path: poren_analyse.py.exe
+          path: poren_analyse
