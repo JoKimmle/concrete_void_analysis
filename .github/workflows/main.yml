@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: poren_analyse
-          path: poren_analyse
+          path: D:\a\concrete_void_analysis\concrete_void_analysis\dist\poren_analyse.py.exe
