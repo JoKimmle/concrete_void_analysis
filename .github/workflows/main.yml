@@ -26,8 +26,29 @@ jobs:
           name: poren_analyse
           path: dist/poren_analyse.py.exe
 
-      - name: Upload .exe
-        uses: actions/upload-artifact@v2
+
+
+          
+      - name: create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: poren_analyse
-          path: D:\a\concrete_void_analysis\concrete_void_analysis\dist\poren_analyse.py.exe
+          tag_name: ${{ github.event.head_commit.message }}
+          release_name: ${{ github.event.head_commit.message }}
+          overwrite: true
+          body: |
+            Test Release v1.0.0
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: D:\a\concrete_void_analysis\concrete_void_analysis\dist\poren_analyse.py.exe
+          asset_name: void.exe
+          asset_content_type: application/zip
