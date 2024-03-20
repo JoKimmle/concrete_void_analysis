@@ -30,7 +30,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: poren_analyse
-          path: dist/poren_analyse.exe
+          path: dist/poren_analyse.py.exe
       - name: create release
         id: create_release
         uses: actions/create-release@v1
@@ -50,6 +50,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: dist/poren_analyse.exe
+          asset_path: dist/poren_analyse.py.exe
           asset_name: poren_analyse
           asset_content_type: application/zip
