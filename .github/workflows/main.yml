@@ -29,8 +29,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
-          name: Windows_contact-sheet-creator
-          path: dist\contact-sheet-creator.exe
+          name: poren_analyse
+          path: poren_analyse.exe
       - name: create release
         id: create_release
         uses: actions/create-release@v1
@@ -50,6 +50,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: dist\contact-sheet-creator.exe
-          asset_name: contact-sheet-creator.exe
+          asset_path: poren_analyse.exe
+          asset_name: poren_analyse.exe
           asset_content_type: application/zip
