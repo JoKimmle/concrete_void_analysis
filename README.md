@@ -15,6 +15,10 @@ Links das Menüfenster, rechts die Ausgabe des Bildes mit eingezeichneten Poren 
 
 *Alternativ kann auch das Pythonscript (Quellcode) gestartet werden -> Python-Entwicklungsumgebung benötigt.*
 
+In der rechten Seitenleiste von Github auf dieser Seite befindet sich unter der Überschrift "Release" der "Initial Release" mit grünem Label: "Latest", auf diesen Klicken, oder alternativ auf diesen [Link](https://github.com/JoKimmle/concrete_void_analysis/releases/tag/v1.0.0) klicken.
+Dort dann die erste Datei auswählen: "poren_analyse.exe" - der Download beginnt automatisch.
+
+
 Bevor das Programm geladen werden kann muss der Windows defender für .exe Dateien deaktiviert werden (etwas sketchy).
 
 Dazu diesen Schritten folgen:
