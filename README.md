@@ -3,7 +3,7 @@
 
 *kleines Programm mit grafischer Benutzeroberfläche zum Erkennen von Poren in Sichtbeton und Bestimmen von Porenflächenanteil*
 
-Auf diesem Repository liegt der Python Quellcode und die daraus erstellte exe-Datei (folgt!!!).
+Auf diesem Repository liegt der Python Quellcode und die daraus resultierende EXE-Datei (siehe Release im linken Menüband).
 
 
 ## App Übersicht
@@ -24,12 +24,12 @@ Bevor das Programm geladen werden kann muss der Windows defender für .exe Datei
 Dazu diesen Schritten folgen:
 1. Wählen Sie Start aus und öffnen Sie Einstellungen. Wählen Sie unter Datenschutz und Sicherheit die OptionViren- und Bedrohungsschutz.
 2. Wählen Sie unter Einstellungen für den Viren- und Bedrohungsschutz die Option Einstellungen verwalten und dann unter Ausschlüsse Ausschlüsse hinzufügen oder entfernen.
-(Quelle: https://support.microsoft.com/de-de/windows/hinzufügen-eines-ausschlusses-zu-windows-sicherheit-811816c0-4dfd-af4a-47e4-c301afe13b26)
+(Quelle zu Schritt 1 und 2: https://support.microsoft.com/de-de/windows/hinzufügen-eines-ausschlusses-zu-windows-sicherheit-811816c0-4dfd-af4a-47e4-c301afe13b26)
 3. Dann Ausschlüsse hinzufügen, Dateityp, und dann “exe” eintragen.
 
-Nun kann die exe-Datei geladen werden. Dazu exe-Datei aus diesem Repo laden. (Achtung: Edge und Chrome funktionieren nicht, Firefox funktioniert)
 
-Dann die Datei in den Programm Ordner abspeichern, oder wo immer das Programm gespeichert werden soll.
+
+Dann die EXE-Datei in den Programm Ordner abspeichern, oder wo immer das Programm gespeichert werden soll.
 
 Durch doppelklicken wird das Programm ausgeführt. Da ich kein verifizierter Entwickler bin, schaltet sich Microsoft Defender ein und warnt dass das Programm gefährlich sein kann.
 Klicke auf “Mehr Information” um im Anschluss “Trotzdem Ausführen” auszuwählen.
