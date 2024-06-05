@@ -96,6 +96,9 @@ class PictureImporter:
 
         self.button_process = tk.Button(self.frame, text="Berechnen...", command=self.process)
         self.button_process.pack()
+        
+        self.label = tk.Label(self.frame, text="entwickelt von Johannes Kimmle")
+        self.label.pack()
 
     def load_pictures(self):
         global open_file_path
